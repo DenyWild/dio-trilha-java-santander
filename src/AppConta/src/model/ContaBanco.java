@@ -35,7 +35,18 @@ public class ContaBanco {
     }
 
     public String getAgencia() {
-        return this.agencia;
+        if (agencia.matches("\\d{3}-\\d")) {
+            return this.agencia; // Retorna a agência formatada existente
+        } else {
+            // Caso a agência não esteja no formato correto, a formata
+            // Supondo que a agência seja um número inteiro
+            String nmdi = agencia.substring(0, 3);
+            String diga = agencia.substring(3, 4);
+            int numeroSemDigito = Integer.parseInt(nmdi);
+            int digitoAgencia = Integer.parseInt(diga);
+            String agenciaFormatada = String.format("%3d-%d", numeroSemDigito, digitoAgencia);
+            return agenciaFormatada;
+        }
     }
 
     public void setSaldo(double saldo) {
