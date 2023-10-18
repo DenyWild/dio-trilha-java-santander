@@ -40,10 +40,10 @@ public class ContaBanco {
         } else {
             // Caso a agência não esteja no formato correto, a formata
             // Supondo que a agência seja um número inteiro
-            String nmdi = agencia.substring(0, 3);
-            String diga = agencia.substring(3, 4);
-            int numeroSemDigito = Integer.parseInt(nmdi);
-            int digitoAgencia = Integer.parseInt(diga);
+            String numero = agencia.substring(0, 3);
+            String digito = agencia.substring(3, 4);
+            int numeroSemDigito = Integer.parseInt(numero);
+            int digitoAgencia = Integer.parseInt(digito);
             String agenciaFormatada = String.format("%3d-%d", numeroSemDigito, digitoAgencia);
             return agenciaFormatada;
         }
